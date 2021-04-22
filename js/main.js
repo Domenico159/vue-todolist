@@ -103,6 +103,8 @@ const main = new Vue({
         pushaModifica(){
 
             this.todos[this.editIndex].text = this.modificaInput;
+
+            this.todos[this.editIndex].completed = false;
     
                this.closeOverlayIcon = false;
         },
@@ -110,7 +112,10 @@ const main = new Vue({
 
             this.modificaInput = this.todos[this.editIndex].text 
 
-        }
+        },
+         checked(index){
+             this.todos[index].completed = ! this.todos[index].completed
+         },
 
     },
 

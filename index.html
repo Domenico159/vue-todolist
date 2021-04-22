@@ -33,7 +33,10 @@
             <ul v-if="todos.length > 0" >
                 <li
                 v-for="(element,index) in todos">
-                   <span>{{ element.text }}</span>
+                   <span :class="{ active: todos[index].completed }"
+                    @click="checked(index)"
+
+                   >{{ element.text }}</span>
                    <i @click="openOverlayIcon(index)"
                    class="far fa-edit"></i>
                    <i @click="deletedList(index)"

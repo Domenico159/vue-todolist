@@ -60,6 +60,11 @@ main .list-content .fa-trash-alt span{
     color: #fff;
 }
 
+
+main ul li  span.active{
+    text-decoration: line-through;
+}
+
 main .list-content .box-input{
     display: flex;
     align-items: center;
@@ -150,6 +155,7 @@ main .list-content ul li span{
     padding-right: 25px;
     height: auto;
     text-transform: capitalize;
+    cursor: pointer;
 }
 main .list-content ul li i{
     position: absolute;
