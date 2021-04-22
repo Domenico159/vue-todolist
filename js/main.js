@@ -27,17 +27,58 @@ const main = new Vue({
             },
             {
                 text:'Fare la live su Twitch',
-                completed:true,
+                completed:false,
                 delete:false,
             },
         ],
+        newList:'',
+        deleteItem:[],
 
     },
     methods:{
 
         deletedList(index){
-            this.todos[index].delete = true;
+
+            this.todos.splice(index , 1)
+
+            thisItem = this.todos[index];
+             this.deleteItem.push(thisItem);
+
+            console.log(this.deleteItem.length);
+
+            thisItem.delete = true;
         },
+        
+        addList(){
+
+            
+            if(this.newList !== ''){
+
+                console.log(this.newList);
+                this.todos.push(
+                    {
+                        text:this.newList,
+                        completed:false,
+                        delete:false, 
+                    } )
+            }
+
+            this.newList = ''
+            this.$refs.inputList.focus()
+
+        },
+
+        ripristina(){
+
+            this.todos.push(
+                {
+                    text:this.deleteItem[0].text,
+                    completed:false,
+                    delete:false, 
+                } )
+
+                this.deleteItem.splice(0 , 1)
+        }
 
     },
 

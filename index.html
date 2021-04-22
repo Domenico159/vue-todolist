@@ -19,8 +19,19 @@
             <h1>Nerd list</h1>
         </div>
         <div class="list-content">
+            <i class="fas fa-trash-alt"><span>{{ deleteItem.length }}</span></i>
+            <i  @click="ripristina"
+             class="fas fa-sync-alt"></i>
+            <div class="box-input">
+                <input  @keyup.enter="addList"
+                 v-model.trim="newList"
+                 ref="inputList"
+                  type="text">
+                <button @click="addList"
+                >Aggiungi</button>
+            </div>
             <ul v-if="todos.length > 0" >
-                <li :class="{activeOut: todos[index].delete == true }"
+                <li
                 v-for="(element,index) in todos">
                    <span>{{ element.text }}</span>
                    <i class="far fa-edit"></i>
