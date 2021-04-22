@@ -52,14 +52,16 @@ main .list-content .fa-sync-alt{
 
 main .list-content .fa-trash-alt span{
     display: inline-block;
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     background-color: rgb(7, 26, 82);
     position: absolute;
+    top:-15px;
+    left: 20px;
     border-radius: 50%;
     text-align: center;
-    line-height: 24px;
-    font-size: 16px;
+    line-height: 19px;
+    font-size: 14px;
     color: #fff;
 }
 
@@ -249,3 +251,7 @@ main .overlay .box-modifica h2{
 
 
 
+.list-content .fa-trash-alt,
+.list-content .fa-sync-alt{
+    color: rgb(28, 15, 105);
+}
