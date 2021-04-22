@@ -77,7 +77,9 @@ const main = new Vue({
                     delete:false, 
                 } )
 
-                this.deleteItem.splice(0 , 1)
+                if(this.deleteItem.length > 0){
+                    this.deleteItem.splice(0 , 1)
+                }
         }
 
     },
