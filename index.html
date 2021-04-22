@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nerd List</title>
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Vue js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+
+    <main id="main">
+        <div class="tittle">
+            <h1>Nerd list</h1>
+        </div>
+        <div class="list-content">
+            <ul v-if="todos.length > 0" >
+                <li :class="{activeOut: todos[index].delete == true }"
+                v-for="(element,index) in todos">
+                   <span>{{ element.text }}</span>
+                   <i class="far fa-edit"></i>
+                   <i @click="deletedList(index)"
+                   class="fas fa-times"></i>
+                </li>
+            </ul>
+            <h2 v-else>Complimenti hai eseguito tutte le tue Task !!!</h2>
+        </div>
+    </main>
+    
+    <!-- JS -->
+    <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+/* Main */
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Tittle */
+
+main .tittle h1{
+    font-size: 40px;
+}
+
+/* Main-content list */
+
+main .list-content ul{
+    list-style: none;
+    margin-top: 50px;
+    background-color: aqua;
+    padding: 10px;
+    width: 500px;
+    max-height: 500px;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+
+main .list-content ul li{
+    padding: 10px 25px ;
+    border-bottom: 1px solid #000;
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    position: relative;
+    overflow:hidden;
+}
+
+@keyframes transOut{
+    0%{
+        width: 500px;
+        height: 50px;
+    }
+    80%{
+        width: 0;
+        padding: 0;
+    }
+    100%{
+        height: 0px;
+        width: 0px;
+        padding: 0;
+    }
+}
+
+@keyframes transIn{
+    0%{
+        height: 0px;
+        width: 0px;
+        padding: 0;
+    }
+    100%{
+        width: 480px;
+        height: 50px;
+    }
+}
+
+
+main .list-content ul li:last-child{
+    border-color: transparent;
+}
+
+main .list-content ul li span{
+    width: 450px;
+    padding-right: 25px;
+    height: auto;
+}
+main .list-content ul li i{
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+main .list-content ul li i.fa-edit{
+    right: 35px;
+    color: rgb(26, 131, 131);
+}
+
+ul li i.fa-times{
+    color: red;
+}
+
+li.activeIn{
+    animation: transOut 1s forwards;
+}
+
+li.activeOut{
+    animation: transOut 1s forwards;
+}
