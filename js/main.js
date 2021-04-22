@@ -33,6 +33,9 @@ const main = new Vue({
         ],
         newList:'',
         deleteItem:[],
+        closeOverlayIcon:false,
+        modificaInput:'',
+        editIndex:null,
 
     },
     methods:{
@@ -44,8 +47,8 @@ const main = new Vue({
             thisItem = this.todos[index];
              this.deleteItem.push(thisItem);
 
-            console.log(this.deleteItem);
-            console.log(index);
+            // console.log(this.deleteItem);
+            // console.log(index);
 
             this.todos.splice(index , 1)
 
@@ -57,7 +60,7 @@ const main = new Vue({
             
             if(this.newList !== ''){
 
-                console.log(this.newList);
+                // console.log(this.newList);
                 this.todos.push(
                     {
                         text:this.newList,
@@ -84,6 +87,29 @@ const main = new Vue({
 
                     this.deleteItem.splice(0 , 1)
                 }
+        },
+        closeOverlay(){
+            this.closeOverlayIcon = false;
+        },
+        openOverlayIcon(index){
+            this.closeOverlayIcon = true;
+
+            this.editIndex = index;
+
+            this.modificaInput = this.todos[index].text
+
+        
+        },
+        pushaModifica(){
+
+            this.todos[this.editIndex].text = this.modificaInput;
+    
+               this.closeOverlayIcon = false;
+        },
+        anullaModifica(){
+
+            this.modificaInput = this.todos[this.editIndex].text 
+
         }
 
     },

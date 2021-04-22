@@ -34,13 +34,33 @@
                 <li
                 v-for="(element,index) in todos">
                    <span>{{ element.text }}</span>
-                   <i class="far fa-edit"></i>
+                   <i @click="openOverlayIcon(index)"
+                   class="far fa-edit"></i>
                    <i @click="deletedList(index)"
                    class="fas fa-times"></i>
                 </li>
             </ul>
             <h2 v-else>Complimenti hai eseguito tutte le tue Task !!!</h2>
         </div>
+
+        <div v-show="closeOverlayIcon"
+         class="overlay">
+            <div class="box-modifica">
+                <i 
+                 @click="closeOverlay"
+                   class="fas fa-times"></i>
+                   <h2>Modifica:</h2>
+                <input v-model="modificaInput"
+                type="text">
+                <div class="box-button">
+                    <button @click="pushaModifica"
+                    class="modifica">Mofica</button>
+                <button @click="anullaModifica"
+                class="annulla">Anulla</button>
+                </div>
+            </div>
+        </div>
+
     </main>
     
     <!-- JS -->
