@@ -39,12 +39,15 @@ const main = new Vue({
 
         deletedList(index){
 
-            this.todos.splice(index , 1)
+            
 
             thisItem = this.todos[index];
              this.deleteItem.push(thisItem);
 
-            console.log(this.deleteItem.length);
+            console.log(this.deleteItem);
+            console.log(index);
+
+            this.todos.splice(index , 1)
 
             thisItem.delete = true;
         },
@@ -70,14 +73,15 @@ const main = new Vue({
 
         ripristina(){
 
-            this.todos.push(
-                {
-                    text:this.deleteItem[0].text,
-                    completed:false,
-                    delete:false, 
-                } )
-
                 if(this.deleteItem.length > 0){
+
+                    this.todos.push(
+                        {
+                            text:this.deleteItem[0].text,
+                            completed:false,
+                            delete:false, 
+                        } )
+
                     this.deleteItem.splice(0 , 1)
                 }
         }
